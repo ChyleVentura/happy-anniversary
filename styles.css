@@ -175,7 +175,6 @@ body{
     width: 100%;
     background-color: #302d25;
     color: #fff;
-    
 }
 
 .section-container{
@@ -186,6 +185,18 @@ body{
     max-width: 1240px;
     margin: auto;
     height: 100vh;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    text-align: center;
+    margin: 40px 0;
+    align-items: center;
+    color: #fff;
+    padding: 100px 50px;
+    border-radius: 15px;
 }
 
 .images{
@@ -216,6 +227,33 @@ body{
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
+  }
+
+  .btn-dinner{
+    outline: none;
+    border: none;
+    margin: 30px auto ;
+    padding: 10px 40px;
+    width: 40%;
+    border-radius: 15px;
+    font-family: "Lora", serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    background-color: #302d25;
+    color: white;
+  }
+
+  .btn-dinner:hover{
+    background-color: #686868
+  }
+
+  .message{
+    margin-top: 100px;
+    line-height: 70px;
+  }
+
+  .history .year{
+    font-size: 5em;
   }
 
 
@@ -309,6 +347,9 @@ body{
     }
     .map-frame{
         width: 100%;
+    }
+    .message{
+        line-height: 30px;
     }
   }
 
