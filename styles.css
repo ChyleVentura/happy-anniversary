@@ -19,7 +19,7 @@ body{
 .hero-container::before{
     content: "";
     position: absolute;
-    background: url(imgs/bg-sepia\ Large.png);
+    background: url(imgs/bg-sepia.webp);
     z-index: -10;
     background-position: center;
     background-attachment: fixed;
