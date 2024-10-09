@@ -170,6 +170,24 @@ body{
     width: 100%;
     max-width: 1240px;
 }
+
+.section-wrapper{
+    width: 100%;
+    background-color: #302d25;
+    color: #fff;
+    
+}
+
+.section-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1240px;
+    margin: auto;
+    height: 100vh;
+}
+
 .images{
     padding-inline-start: 0;
     list-style: none;
@@ -276,6 +294,10 @@ body{
     }
     .history-title{
         font-size: 1em;
+    }
+
+    .description{
+        margin: 0 40px;
     }
 
     .photo img{
