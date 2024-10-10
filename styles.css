@@ -78,6 +78,11 @@ body{
     font-weight: 200;
 }
 
+.hero-title .name-plate{
+    color: #6d624f;
+    font-size: 7em;
+}
+
 .hero-title{
     animation: slideBottom 1s ease-in-out both;
 }
@@ -223,11 +228,26 @@ body{
     transform: translatey(100px);
   }
 
-  .show{
+.show{
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
-  }
+}
+
+.hidden-scale{
+    opacity: 0;
+    transition-delay: 0.1s ;
+    transform: scale(0.7);
+    transition-timing-function: cubic-bezier(.56,.02,.48,.99);
+    transition-duration: .4s;
+    /* transform: translatey(100px); */
+}
+
+.show-scale{
+    opacity: 1;
+    transform: scale(1);
+    /* transform: translateX(0); */
+}
 
   .btn-dinner{
     outline: none;
@@ -320,6 +340,10 @@ body{
 
     .hero-title h1{
         font-size: 2em;
+    }
+
+    .hero-title .name-plate{
+        font-size: 3em;
     }
 
     .tulip1, .tulip2{

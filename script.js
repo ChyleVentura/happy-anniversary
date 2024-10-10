@@ -1,19 +1,3 @@
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) =>{
-        console.log(entry)
-        if (entry.isIntersecting){
-            entry.target.classList.add("show")
-        }else{
-            entry.target.classList.remove("show")
-        }
-    })
-}) 
-
-const hiddenElements = document.querySelectorAll('.hidden')
-
-hiddenElements.forEach((el)=> observer.observe(el))
-
-
 const imagesOne = [
     {path:"imgs/ANNIV PICS/2021/1.webp"},
     {path:"imgs/ANNIV PICS/2021/2.webp"},
@@ -109,11 +93,38 @@ const secondBatch = document.querySelector('.images_two')
 const thirdBatch = document.querySelector('.images_three')
 const fourthBatch = document.querySelector('.images_four')
 
-imagesOne.forEach(image => console.log(image.path))
 
 // firstBatch.innerHTML = imagesOne.forEach(image => `<li><img src="${image.path}" alt=""></li>`)
 
-imagesOne.forEach(image => firstBatch.innerHTML +=`<li><img src="${image.path}" alt=""></li>`)
-imagesTwo.forEach(image => secondBatch.innerHTML +=`<li><img src="${image.path}" alt=""></li>`)
-imagesThree.forEach(image => thirdBatch.innerHTML +=`<li><img src="${image.path}" alt=""></li>`)
-imagesFour.forEach(image => fourthBatch.innerHTML +=`<li><img src="${image.path}" alt=""></li>`)
+imagesOne.forEach(image => firstBatch.innerHTML +=`<li><img class="hidden-scale" src="${image.path}" alt=""></li>`)
+imagesTwo.forEach(image => secondBatch.innerHTML +=`<li><img class="hidden-scale" src="${image.path}" alt=""></li>`)
+imagesThree.forEach(image => thirdBatch.innerHTML +=`<li><img class="hidden-scale" src="${image.path}" alt=""></li>`)
+imagesFour.forEach(image => fourthBatch.innerHTML +=`<li><img class="hidden-scale" src="${image.path}" alt=""></li>`)
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) =>{
+        console.log(entry)
+        if (entry.isIntersecting){
+            entry.target.classList.add("show")
+        }else{
+            entry.target.classList.remove("show")
+        }
+    })
+}) 
+
+const scaleObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) =>{
+        console.log(entry)
+        if (entry.isIntersecting){
+            entry.target.classList.add("show-scale")
+        }else{
+            entry.target.classList.remove("show-scale")
+        }
+    })
+}) 
+
+const hiddenElements = document.querySelectorAll('.hidden')
+const hiddenScaleElements = document.querySelectorAll('.hidden-scale')
+
+hiddenElements.forEach((el)=> observer.observe(el))
+hiddenScaleElements.forEach((el)=> scaleObserver.observe(el))
