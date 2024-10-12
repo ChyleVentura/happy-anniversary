@@ -136,7 +136,7 @@ body{
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 0 250px;
+    margin: 0 100px;
 }
 
 .history-title{
@@ -324,11 +324,15 @@ body{
     .description{
         height: 70vh;
         justify-content: center;
+        margin: 0 30px;
     }
 
     .photo img{
         margin: auto;
         width: 600px;
+    }
+    .description .message{
+        line-height: 20px;
     }
   }
 
@@ -372,8 +376,9 @@ body{
     .map-frame{
         width: 100%;
     }
-    .message{
-        line-height: 30px;
+    .description .message{
+        line-height: 20px;
+
     }
   }
 
