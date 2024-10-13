@@ -93,6 +93,10 @@ const secondBatch = document.querySelector('.images_two')
 const thirdBatch = document.querySelector('.images_three')
 const fourthBatch = document.querySelector('.images_four')
 
+const correctAnswers = ['C','B','A','B','A','A','B']
+const form = document.querySelector('.quiz-form');
+const result = document.querySelector('.result')
+
 
 // firstBatch.innerHTML = imagesOne.forEach(image => `<li><img src="${image.path}" alt=""></li>`)
 
@@ -128,3 +132,45 @@ const hiddenScaleElements = document.querySelectorAll('.hidden-scale')
 
 hiddenElements.forEach((el)=> observer.observe(el))
 hiddenScaleElements.forEach((el)=> scaleObserver.observe(el))
+
+
+// quiz-section
+
+form.addEventListener('submit', e=>{
+    e.preventDefault();
+
+    let score = 0;
+    const userAnswers = [form.q1.value,
+        form.q2.value,
+        form.q3.value,
+        form.q4.value,
+        form.q5.value,
+        form.q6.value,
+        form.q7.value];
+
+    // check answers
+    userAnswers.forEach((answer, index)=>{
+        if(answer === correctAnswers[index]){
+            score += (100/correctAnswers.length);
+        }
+    })
+
+    scrollTo(0,4700);
+    result.classList.remove('d-none');
+
+    let output = 0;
+    const timer = setInterval( ()=>{
+        result.querySelector('span').textContent = `${Math.floor(output)}%`;
+
+        if(output === Math.floor(score)){
+            clearInterval(timer);
+        }else{
+            output++;
+        }
+    },50);
+
+    
+    
+    
+    
+})
