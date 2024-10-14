@@ -462,11 +462,50 @@ body{
     height: 8px;
     border-radius: 50%;
     background: white;
+
+  }
+.envelope{
+    position:absolute;
+    background-color: #d1cfbe;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: all 200ms ease-in-out;
+}
+
+.open-btn{
+    outline: none;
+    border: none;
+    margin: 30px auto ;
+    padding: 40px 40px;
+    width: 40%;
+    border-radius: 15px;
+    font-family: "Lora", serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    background-color: #302d25;
+    color: white;
+    cursor: pointer;
+}
+
+.appear{
+    animation: fadeIn 2s ease-in 500ms forwards;
+}
+
+
+.open-btn:hover{
+    background-color: #686868
   }
 
 
-
-
+.slide-out{
+    opacity: 0;
+    transition: all 500ms ease-in-out;
+}
 
 
 @keyframes slideInLeft {
@@ -476,6 +515,23 @@ body{
     }
     100%{
         transform: translateX(-200px) rotate(30deg);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-1000px);
+    }
+}
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
         opacity: 1;
     }
 }

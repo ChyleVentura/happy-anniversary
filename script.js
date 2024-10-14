@@ -92,11 +92,13 @@ const firstBatch = document.querySelector('.images_one')
 const secondBatch = document.querySelector('.images_two')
 const thirdBatch = document.querySelector('.images_three')
 const fourthBatch = document.querySelector('.images_four')
-
-const correctAnswers = ['C','B','A','B','A','A','B']
+const btnDinner = document.querySelector('.btn-dinner')
+const correctAnswers = ['C','B','A','B','B','A','B','A','B','A']
 const form = document.querySelector('.quiz-form');
 const result = document.querySelector('.result')
-
+const openBtn = document.querySelector('.open-btn')
+const envelope = document.querySelector('.envelope')
+const namePlate = document.querySelector(".name-plate")
 
 // firstBatch.innerHTML = imagesOne.forEach(image => `<li><img src="${image.path}" alt=""></li>`)
 
@@ -146,7 +148,10 @@ form.addEventListener('submit', e=>{
         form.q4.value,
         form.q5.value,
         form.q6.value,
-        form.q7.value];
+        form.q7.value,
+        form.q8.value,
+        form.q9.value,
+        form.q10.value];
 
     // check answers
     userAnswers.forEach((answer, index)=>{
@@ -155,7 +160,7 @@ form.addEventListener('submit', e=>{
         }
     })
 
-    scrollTo(0,4700);
+    scrollTo(0,5950);
     result.classList.remove('d-none');
 
     let output = 0;
@@ -167,10 +172,22 @@ form.addEventListener('submit', e=>{
         }else{
             output++;
         }
-    },50);
+    },30);
 
     
     
     
     
+})
+
+openBtn.addEventListener('click', e=>{
+    envelope.classList.add('slide-out')
+})
+
+btnDinner.addEventListener('click', e=>{
+    scrollTo(0,0)
+    namePlate.textContent = "You can now open the gift!"
+    namePlate.classList.add('appear')
+    namePlate.nextElementSibling.textContent=""
+    namePlate.nextElementSibling.nextElementSibling.textContent=""
 })
