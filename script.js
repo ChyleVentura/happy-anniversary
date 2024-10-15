@@ -93,13 +93,34 @@ const secondBatch = document.querySelector('.images_two')
 const thirdBatch = document.querySelector('.images_three')
 const fourthBatch = document.querySelector('.images_four')
 const btnDinner = document.querySelector('.btn-dinner')
-const correctAnswers = ['C','B','A','B','B','A','B','B','B','A']
+const correctAnswers = ['Tagkawayan',
+    'Elan',
+    'Gold Cup',
+    'Photo album',
+    'False',
+    'True',
+    'False',
+    'False',
+    'False',
+    'Yes']
 const form = document.querySelector('.quiz-form');
 const result = document.querySelector('.result')
 const openBtn = document.querySelector('.open-btn')
 const envelope = document.querySelector('.envelope')
 const namePlate = document.querySelector(".name-plate")
-
+const correctAnswer = [
+    document.querySelector(".correct-answer-q1"),
+    document.querySelector(".correct-answer-q2"),
+    document.querySelector(".correct-answer-q3"),
+    document.querySelector(".correct-answer-q4"),
+    document.querySelector(".correct-answer-q5"),
+    document.querySelector(".correct-answer-q6"),
+    document.querySelector(".correct-answer-q7"),
+    document.querySelector(".correct-answer-q8"),
+    document.querySelector(".correct-answer-q9"),
+    document.querySelector(".correct-answer-q10")
+]
+const checkBtn = document.querySelector(".check-btn")
 // firstBatch.innerHTML = imagesOne.forEach(image => `<li><img src="${image.path}" alt=""></li>`)
 
 imagesOne.forEach(image => firstBatch.innerHTML +=`<li><img class="hidden-scale" src="${image.path}" alt=""></li>`)
@@ -109,7 +130,6 @@ imagesFour.forEach(image => fourthBatch.innerHTML +=`<li><img class="hidden-scal
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) =>{
-        console.log(entry)
         if (entry.isIntersecting){
             entry.target.classList.add("show")
         }else{
@@ -120,7 +140,6 @@ const observer = new IntersectionObserver((entries) => {
 
 const scaleObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) =>{
-        console.log(entry)
         if (entry.isIntersecting){
             entry.target.classList.add("show-scale")
         }else{
@@ -157,10 +176,19 @@ form.addEventListener('submit', e=>{
     userAnswers.forEach((answer, index)=>{
         if(answer === correctAnswers[index]){
             score += (100/correctAnswers.length);
+            correctAnswer[index].textContent = "Correct! "
+            correctAnswer[index].setAttribute('style','color:green')
+        }else{
+            correctAnswer[index].textContent = `Wrong! Correct answer: ${correctAnswers[index]}`
+            correctAnswer[index].setAttribute('style','color:red')
         }
+
+        // correctAnswer[index].textContent = correctAnswers[index]
     })
 
-    scrollTo(0,5950);
+    
+
+    scrollTo(0,6050);
     result.classList.remove('d-none');
 
     let output = 0;
@@ -190,4 +218,8 @@ btnDinner.addEventListener('click', e=>{
     namePlate.classList.add('appear')
     namePlate.nextElementSibling.textContent=""
     namePlate.nextElementSibling.nextElementSibling.textContent=""
+})
+
+checkBtn.addEventListener('click', e=>{
+    scrollTo(0,1800)
 })

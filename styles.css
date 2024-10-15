@@ -352,6 +352,13 @@ body{
     font-weight: 800;
     font-size: 2em;
     margin: 0 0 40px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.lead span{
+    color: green;
+    font-size: .5em;
 }
 
 .quiz-card .form-check{
@@ -374,8 +381,9 @@ body{
     display: none;
 }
 
-.percent{
+.result .percent{
     font-size: 2em;
+    color: #fff;
 }
 
 .submit-btn{
@@ -491,6 +499,25 @@ body{
     color: white;
     cursor: pointer;
 }
+
+.check-btn{
+    outline: none;
+    border: none;
+    margin: 30px auto ;
+    padding: 40px 40px;
+    width: 40%;
+    border-radius: 15px;
+    font-family: "Lora", serif;
+    font-size: 1em;
+    font-weight: 800;
+    background-color: #302d25;
+    color: white;
+    cursor: pointer;
+}
+
+.check-btn:hover{
+    background-color: #686868
+  }
 
 .appear{
     animation: fadeIn 2s ease-in 500ms forwards;
